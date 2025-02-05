@@ -18,13 +18,13 @@ it('returns success on login page', function () {
 
 it('should not be possible to login with incorrect credentials', function () {
     \App\Models\User::factory()->create([
-        'email' => 'zura@example.com',
+        'email' => 'JohnDoe@example.com',
         'password' => bcrypt('password')
     ]);
     /** @var \Illuminate\Testing\TestResponse $response */
     $response = $this->post(route('login.store'), [
-        'email' => 'zura@example.com',
-        'password' => '123456'
+        'email' => 'JohnDoe@example.com',
+        'password' => '12345678'
     ]);
 
     $response->assertStatus(302)
@@ -34,12 +34,12 @@ it('should not be possible to login with incorrect credentials', function () {
 
 it('should be possible to login with correct credentials', function () {
     \App\Models\User::factory()->create([
-        'email' => 'zura@example.com',
+        'email' => 'JohnDoe@example.com',
         'password' => bcrypt('password')
     ]);
     /** @var \Illuminate\Testing\TestResponse $response */
     $response = $this->post(route('login.store'), [
-        'email' => 'zura@example.com',
+        'email' => 'JohnDoe@example.com',
         'password' => 'password'
     ]);
 
@@ -79,10 +79,10 @@ it('should not be possible to signup with empty', function () {
 it('should not be possible to signup with incorrect password', function () {
     /** @var \Illuminate\Testing\TestResponse $response */
     $response = $this->post(route('signup.store'), [
-        'name' => 'Zura',
-        'email' => 'zura@example.com',
+        'name' => 'JohnDoe',
+        'email' => 'JohnDoe@example.com',
         'phone' => '123',
-        'password' => '123456',
+        'password' => '12345678',
         'password_confirmation' => '1111',
     ]);
 
@@ -92,12 +92,12 @@ it('should not be possible to signup with incorrect password', function () {
 
 it('should not be possible to signup with existing email', function () {
     \App\Models\User::factory()->create([
-        'email' => 'zura@example.com'
+        'email' => 'JohnDoe@example.com'
     ]);
     /** @var \Illuminate\Testing\TestResponse $response */
     $response = $this->post(route('signup.store'), [
-        'name' => 'Zura',
-        'email' => 'zura@example.com',
+        'name' => 'JohnDoe',
+        'email' => 'JohnDoe@example.com',
         'phone' => '123',
         'password' => '1asda523Aa.#',
         'password_confirmation' => '1asda523Aa.#',
@@ -110,9 +110,9 @@ it('should not be possible to signup with existing email', function () {
 it('should be possible to signup with correct data', function () {
     /** @var \Illuminate\Testing\TestResponse $response */
     $response = $this->post(route('signup.store'), [
-        'name' => 'Zura',
-        'email' => 'zura@example.com',
-        'phone' => '123456',
+        'name' => 'JohnDoe',
+        'email' => 'JohnDoe@example.com',
+        'phone' => '12345678',
         'password' => 'dajhdgaA12312@#',
         'password_confirmation' => 'dajhdgaA12312@#'
     ]);
@@ -135,7 +135,7 @@ it('returns success on forgot password page', function () {
 it('should not be possible to request password with incorrect email', function () {
     /** @var \Illuminate\Testing\TestResponse $response */
     $response = $this->post(route('password.email'), [
-        'email' => 'zura@example.com',
+        'email' => 'JohnDoe@example.com',
     ]);
 
     $response->assertStatus(302)
@@ -145,13 +145,13 @@ it('should not be possible to request password with incorrect email', function (
 
 it('should be possible to request password with correct email', function () {
     \App\Models\User::factory()->create([
-        'email' => 'zura@example.com',
-        'password' => bcrypt('123456')
+        'email' => 'JohnDoe@example.com',
+        'password' => bcrypt('12345678')
     ]);
 
     /** @var \Illuminate\Testing\TestResponse $response */
     $response = $this->post(route('password.email'), [
-        'email' => 'zura@example.com',
+        'email' => 'JohnDoe@example.com',
     ]);
 
     $response->assertStatus(302)

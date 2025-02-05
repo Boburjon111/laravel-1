@@ -146,14 +146,14 @@ it('should create car with valid data', function () {
         'model_id' => 1,
         'year' => 2020,
         'price' => 10000,
-        'vin' => '11111111111111111',
+        'vin' => '11111',
         'mileage' => 10000,
         'car_type_id' => 1,
         'fuel_type_id' => 1,
         'state_id' => 1,
         'city_id' => 1,
         'address' => '123',
-        'phone' => '123456789',
+        'phone' => '12345678789',
         'features' => $features,
         'images' => $images
     ];
@@ -296,7 +296,7 @@ it('should successfully update the car details', function () {
         'state_id' => 1,
         'city_id' => 1,
         'address' => '123',
-        'phone' => '123456789',
+        'phone' => '12345678789',
         'features' => $features,
     ];
 

@@ -22,8 +22,8 @@ class HomeController extends Controller
 //        dd($all);
 //        $user2 = session('user', 'John');  // Get data for "user" key from session
 
-//        $request->session()->put('user', 'Zura'); // Put data for "user" key from session
-//        session(['user' => 'Zura']);
+//        $request->session()->put('user', 'Doe'); // Put data for "user" key from session
+//        session(['user' => 'Doe']);
 
 //        $request->session()->forget('user');
 //        $user = $request->session()->remove('user');
